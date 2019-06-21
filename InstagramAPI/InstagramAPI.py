@@ -81,11 +81,10 @@ class InstagramAPI:
 
         Proxy format - user:password@ip:port
         """
-
         if proxy is not None:
             print('Set proxy!')
-            proxies = {'http': proxy, 'https': proxy}
-            self.s.proxies.update(proxies)
+            proxies = {'http://': proxy, 'https://': proxy}
+            self.s.proxies=proxies
 
     def login(self, force=False):
         if (not self.isLoggedIn or force):
